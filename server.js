@@ -61,6 +61,7 @@ function authenticator(req, res, next) {
 }
 
 app.post('/api/login', (req, res) => {
+  
   const { username, password } = req.body;
   if (username === 'user' && password === 'pass') {
     req.loggedIn = true;
