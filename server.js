@@ -8,7 +8,7 @@ const token =
 
 let nextId = 7;
 
-let friends = [
+let schools = [
   {
     id: 1,
     name: 'Ben',
@@ -75,9 +75,9 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-app.get('/api/friends', authenticator, (req, res) => {
+app.get('/api/schools', authenticator, (req, res) => {
   setTimeout(() => {
-    res.send(friends);
+    res.send(schools);
   }, 1000);
 });
 
