@@ -70,6 +70,7 @@ class SchoolsList extends Component {
   
           </ul>
         </div>
+
       )
     }
 
