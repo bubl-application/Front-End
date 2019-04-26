@@ -21,9 +21,9 @@ function App() {
         </ul>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/schools" component={SchoolsList} />
+        <Route path="/schools/:id" component={BublPage} />
         </div>
       </BrowserRouter>
-      {/* <BublPage /> */}
     </div>
   );
 }

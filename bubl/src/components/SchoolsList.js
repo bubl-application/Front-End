@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import axios from 'axios';
 
 class SchoolsList extends Component {
@@ -23,13 +24,17 @@ class SchoolsList extends Component {
 
   render() {
     return (
-        <ul>
-          {/* {this.props.schools.length > 0  && (
-          )} */}
-        
-          {this.state.schools.map(friend => <li>{friend.name}</li> )}
-
-        </ul>
+        <div>
+          <ul>
+            {/* {this.props.schools.length > 0  && (
+            )} */}
+          
+            {this.state.schools.map(friend => {
+              return <li><Link to={`/schools/${friend.id}`}>{friend.name}</Link></li> }
+            )}          
+  
+          </ul>
+        </div>
       )
     }
 
