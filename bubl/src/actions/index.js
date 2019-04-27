@@ -88,7 +88,7 @@ export const POST_SUCCESS = "POST_SUCCESS";
 export const POST_FAILURE = "POST_FAILURE";
 
 export const postBubl = bublmessage => dispatch => {
-   
+   //dispatch({type: POST_SUCCESS, payload: bublmessage});
 
    // dispatch({type: POST_START});
    // axios.post('', bublmessage)

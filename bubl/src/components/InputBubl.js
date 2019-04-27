@@ -15,7 +15,7 @@ class InputBubl extends Component {
       })
    }
 
-   addNewBubl = e => {
+   addNewBublMessage = e => {
       e.preventDefault();
       this.props.postBubl(this.state);
       this.setState({
@@ -25,7 +25,7 @@ class InputBubl extends Component {
 
    render() {
       return (
-         <form onSubmit={this.addNewBubl}>
+         <form onSubmit={this.addNewBublMessage}>
             <input
                name="text" 
                value={this.state.text} 
