@@ -19,7 +19,7 @@ class BublPage extends Component {
             </ul>
 
 
-            {this.props.bubls.map((bubl, index) => (
+            {this.props.bubl.bublmessages.map((bubl, index) => (
                <BublMessage key={index}/>
             ))} 
             <InputBubl />
