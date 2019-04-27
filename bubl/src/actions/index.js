@@ -1,4 +1,5 @@
 import {
+   LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    POST_START, POST_SUCCESS, POST_FAILURE
 } from '../actions';
@@ -13,6 +14,24 @@ const initialState = {
 
 export default (state = initialState, action) => {
    switch (action.type) {
+      case LOGIN_START: {
+         return {
+            ...state,
+            loggingIn: true
+         }
+      }
+      case LOGIN_SUCCESS: {
+         return {
+            ...state,
+            loggingIn: false
+         }
+      }
+      case LOGIN_FAILURE: {
+         return {
+            ...state,
+            loggingIn: false
+         }
+      }
       case FETCH_START: {
          return {
             ...state,

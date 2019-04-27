@@ -1,5 +1,22 @@
 import axios from 'axios';
 
+export const LOGIN_START = "LOGIN_START";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+
+export const login = credentials => dispatch => {
+   dispatch({type: LOGIN_START});
+   axios.post('', credentials)
+      .then(res => {
+         localStorage.setItem('token', res.data.payload);
+         dispatch({type: LOGIN_SUCCESS, payload: res.data.payload});
+      })
+      .catch(err => {
+         console.log("login error:", err);
+         dispatch({type: LOGIN_FAILURE, payload: err});
+      })
+}
+
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
