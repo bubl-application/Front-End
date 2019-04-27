@@ -1,52 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import { connect } from 'react-redux'
+import {getSchools} from "../actions";
 import axios from 'axios';
 
 class SchoolsList extends Component {
 
-  // this file will be converted into redux later.
-  state = {
-    schools: [
-      {
-        id: 1,
-        name: 'Ben',
-        age: 30,
-        email: 'ben@lambdaschool.com'
-      },
-      {
-        id: 2,
-        name: 'Austen',
-        age: 45,
-        email: 'austen@lambdaschool.com'
-      },
-      {
-        id: 3,
-        name: 'Ryan',
-        age: 15,
-        email: 'ryan@lambdaschool.com'
-      },
-      {
-        id: 4,
-        name: 'Dustin',
-        age: 25,
-        email: 'D-munny@lambdaschool.com'
-      },
-      {
-        id: 5,
-        name: 'Sean',
-        age: 35,
-        email: 'sean@lambdaschool.com'
-      },
-      {
-        id: 6,
-        name: 'Michelle',
-        age: 67,
-        email: 'michelle@gmail.com'
-      }
-    ]
-  };
-
   componentDidMount() {
+    this.props.getSchools()
     // axios
     // .get("http://localhost:5000/api/schools", {
     //   headers: { Authorization: localStorage.getItem("token") }
@@ -57,6 +18,7 @@ class SchoolsList extends Component {
     //   this.setState({ schools: res.data });
     //   // dispatch(getFriendsSuccess(res.data))
     // })
+
   }
 
   render() {
@@ -67,7 +29,7 @@ class SchoolsList extends Component {
             {/* {this.props.schools.length > 0  && (
             )} */}
           
-            {this.state.schools.map(friend => {
+            {this.props.schools.map(friend => {
               return <li><Link to={`/schools/${friend.id}`}>{friend.name}</Link></li> }
             )}          
   
@@ -78,4 +40,8 @@ class SchoolsList extends Component {
 
 }
 
-export default SchoolsList;
+const mapStateToProps = state => {
+  return { schools: state.schools}
+}
+
+export default connect(mapStateToProps, {getSchools})(SchoolsList);
