@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { postBubl } from '../actions';
 
 class InputBubl extends Component {
    state = {
@@ -35,4 +37,10 @@ class InputBubl extends Component {
    }
 }
 
-export default InputBubl;
+const mapStateToProps = state => {
+   return {
+      postingBubls: state.postingBubls
+   }
+}
+
+export default connect(mapStateToProps, {postBubl})(InputBubl);
