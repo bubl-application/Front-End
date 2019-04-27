@@ -22,7 +22,7 @@ class BublPage extends Component {
       let bubls = [
         {
           id: 1,
-          bubl: "pokemon",  
+          bublname: "pokemon",  
           message: [
             {
               username: "student01",
@@ -39,6 +39,25 @@ class BublPage extends Component {
             }
           ]
         },
+        {
+         id: 2,
+         bublname: "sports",  
+         message: [
+           {
+             username: "student01",
+             text:
+               "My favorite pokemon is ..."
+           },
+           {
+             username: "student02",
+             text: "Mine too!"
+           },
+           {
+             username: "student03",
+             text: "Can't wait to play the new game!"
+           }
+         ]
+       },
       ]
 
       this.setState(() => ({ bubls }));
@@ -57,10 +76,10 @@ class BublPage extends Component {
             </ul> */}
 
             {this.state.bubls.map((bubl, index) => (
-              <h4>{bubl.bubl}</h4>
+              <h4>{bubl.bublname}</h4>
             ))} 
                {/* <BublMessage key={index}/> */}
-            {/* <InputBubl /> */}
+            <InputBubl />
          </div>
       )
    }
