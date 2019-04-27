@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getBubl } from '../actions';
+import { getBubls } from '../actions';
 import InputBubl from './InputBubl';
 import dummyData from '../dummy-data.js'
 
@@ -10,16 +10,16 @@ class BublPage extends Component {
   }
 
    componentDidMount() {
-      // this.props.getBubls();
-      const id = this.props.match.params.id;
+      this.props.getBubls();
+      //const id = this.props.match.params.id;
       
       // later this will be a get request to get bubls for the specific school
-      this.fetchBubbles(id);
+      //this.fetchBubbles(id);
    }
 
    fetchBubbles = id => {
       // all just mocked for now.
-      this.setState({bubls: dummyData});
+      this.setState();
    }
 
    render() {
@@ -27,7 +27,7 @@ class BublPage extends Component {
       return (
          <div className="bubl-page">
          <h2>List of Bubls</h2>            
-            {this.state.bubls.map((bubl, index) => (
+            {this.props.bubls.map((bubl, index) => (
               <>
                  <div>{bubl.bublname} ( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))})</div>
                  {bubl.messages.map(message => (
@@ -49,4 +49,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, {getBubl})(BublPage);
+export default connect(mapStateToProps, {getBubls})(BublPage);

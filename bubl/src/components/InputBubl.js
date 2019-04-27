@@ -30,7 +30,7 @@ class InputBubl extends Component {
                name="text" 
                value={this.state.text} 
                onChange={this.handleChange}
-               placeholder="Enter new bubl message"/>
+               placeholder="Enter message"/>
             <button type="submit">Add New Message</button>
          </form>
       )
