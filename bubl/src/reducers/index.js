@@ -1,11 +1,12 @@
 import {
    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
-   POST_START, POST_SUCCESS, POST_FAILURE
+   POST_START, POST_SUCCESS, POST_FAILURE, FETCH_SCHOOL_SUCCESS
 } from '../actions';
 
 const initialState = {
    bubls: [],
+   schools: [],
    fetchingBubls: false,
    postingBubls: false,
    loggingIn: false,
@@ -72,6 +73,11 @@ export default (state = initialState, action) => {
             error: action.payload
          }
       }
+      case FETCH_SCHOOL_SUCCESS:
+      return {
+        ...state,        
+        schools: action.payload
+      };
       default: 
          return state;
    }
