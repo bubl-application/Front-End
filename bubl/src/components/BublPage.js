@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getBubl } from '../actions';
 import InputBubl from './InputBubl';
-import BublMessage from './BublMessage';
+import dummyData from '../dummy-data.js'
 
 class BublPage extends Component {
   state = {
@@ -19,67 +19,25 @@ class BublPage extends Component {
 
    fetchBubbles = id => {
       // all just mocked for now.
-      let bubls = [
-        {
-          id: 1,
-          bublname: "pokemon",  
-          message: [
-            {
-              username: "student01",
-              text:
-                "My favorite pokemon is ..."
-            },
-            {
-              username: "student02",
-              text: "Mine too!"
-            },
-            {
-              username: "student03",
-              text: "Can't wait to play the new game!"
-            }
-          ]
-        },
-        {
-         id: 2,
-         bublname: "sports",  
-         message: [
-           {
-             username: "student01",
-             text:
-               "My favorite pokemon is ..."
-           },
-           {
-             username: "student02",
-             text: "Mine too!"
-           },
-           {
-             username: "student03",
-             text: "Can't wait to play the new game!"
-           }
-         ]
-       },
-      ]
-
-      this.setState(() => ({ bubls }));
+      this.setState({bubls: dummyData});
    }
 
    render() {
       console.log(this.state.bubls);
       return (
          <div className="bubl-page">
-         <h2>Bubls</h2>            
-            {/* <h2>{this.props.bubl.bublname}</h2>
-            <ul>
-               {this.props.bubl.hashtags.map((hashtag, index) => (
-                  <div key={index}>#{hashtag}</div>
-               ))}
-            </ul> */}
-
+         <h2>List of Bubls</h2>            
             {this.state.bubls.map((bubl, index) => (
-              <h4>{bubl.bublname}</h4>
-            ))} 
-               {/* <BublMessage key={index}/> */}
-            <InputBubl />
+              <>
+                 <div>{bubl.bublname} ( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))})</div>
+                 {bubl.messages.map(message => (
+                    <>
+                       <div>{message.username}: {message.text}</div>
+                    </>
+                 ))}
+                 <InputBubl />
+              </>
+            ))}
          </div>
       )
    }
