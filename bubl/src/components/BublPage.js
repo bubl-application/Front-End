@@ -5,51 +5,47 @@ import InputBubl from './InputBubl';
 import BublMessage from './BublMessage';
 
 class BublPage extends Component {
-
   state = {
     bubls: []
-  };
+  }
 
    componentDidMount() {
       // this.props.getBubls();
-
       const id = this.props.match.params.id;
       
       // later this will be a get request to get bubls for the specific school
       this.fetchBubbles(id);
-      
    }
 
    fetchBubbles = id => {
-
       // all just mocked for now.
       let bubls = [
         {
           id: 1,
           bubl: "pokemon",  
-          comments: [
+          message: [
             {
-              username: "philzcoffee",
+              username: "student01",
               text:
-                "We've got more than just delicious coffees to offer at our shops!"
+                "My favorite pokemon is ..."
             },
             {
-              username: "biancasaurus",
-              text: "Looks delicious!"
+              username: "student02",
+              text: "Mine too!"
             },
             {
-              username: "martinseludo",
-              text: "Can't wait to try it!"
+              username: "student03",
+              text: "Can't wait to play the new game!"
             }
           ]
         },
       ]
 
       this.setState(() => ({ bubls }));
-
    }
 
    render() {
+      console.log(this.state.bubls);
       return (
          <div className="bubl-page">
          <h2>Bubls</h2>            
