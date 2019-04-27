@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { getBubl } from '../actions';
 import InputBubl from './InputBubl';
 import BublMessage from './BublMessage';
 
@@ -67,5 +69,11 @@ class BublPage extends Component {
       )
    }
 }
+const mapStateToProps = state => {
+   return {
+      bubls: state.bubls,
+      fetchingBubls: state.fetchingBubls
+   }
+}
 
-export default BublPage;
+export default connect(mapStateToProps, {getBubl})(BublPage);
