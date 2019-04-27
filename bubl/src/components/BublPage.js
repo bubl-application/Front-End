@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getBubl } from '../actions';
+import { getBubls } from '../actions';
 import InputBubl from './InputBubl';
-import BublMessage from './BublMessage';
+import dummyData from '../dummy-data.js'
 
 class BublPage extends Component {
   state = {
@@ -10,57 +10,34 @@ class BublPage extends Component {
   }
 
    componentDidMount() {
-      // this.props.getBubls();
-      const id = this.props.match.params.id;
+      this.props.getBubls();
+      //const id = this.props.match.params.id;
       
       // later this will be a get request to get bubls for the specific school
-      this.fetchBubbles(id);
+      //this.fetchBubbles(id);
    }
 
    fetchBubbles = id => {
       // all just mocked for now.
-      let bubls = [
-        {
-          id: 1,
-          bubl: "pokemon",  
-          message: [
-            {
-              username: "student01",
-              text:
-                "My favorite pokemon is ..."
-            },
-            {
-              username: "student02",
-              text: "Mine too!"
-            },
-            {
-              username: "student03",
-              text: "Can't wait to play the new game!"
-            }
-          ]
-        },
-      ]
-
-      this.setState(() => ({ bubls }));
+      this.setState();
    }
 
    render() {
       console.log(this.state.bubls);
       return (
          <div className="bubl-page">
-         <h2>Bubls</h2>            
-            {/* <h2>{this.props.bubl.bublname}</h2>
-            <ul>
-               {this.props.bubl.hashtags.map((hashtag, index) => (
-                  <div key={index}>#{hashtag}</div>
-               ))}
-            </ul> */}
-
-            {this.state.bubls.map((bubl, index) => (
-              <h4>{bubl.bubl}</h4>
-            ))} 
-               {/* <BublMessage key={index}/> */}
-            {/* <InputBubl /> */}
+         <h2>List of Bubls</h2>            
+            {this.props.bubls.map((bubl, index) => (
+              <>
+                 <div>{bubl.bublname} ( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))})</div>
+                 {bubl.messages.map(message => (
+                    <>
+                       <div>{message.username}: {message.text}</div>
+                    </>
+                 ))}
+                 <InputBubl />
+              </>
+            ))}
          </div>
       )
    }
@@ -72,4 +49,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, {getBubl})(BublPage);
+export default connect(mapStateToProps, {getBubls})(BublPage);

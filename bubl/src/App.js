@@ -25,6 +25,7 @@ function App() {
         {/* <PrivateRoute exact path="/schools" component={SchoolsList} /> */}
         <Route exact path="/schools" component={SchoolsList} />
         <Route path="/schools/:id" component={BublPage} />
+        <Route path="/bublpages" component={BublPage} />
         </div>
     </div>
   );

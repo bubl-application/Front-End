@@ -3,6 +3,7 @@ import {
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    POST_START, POST_SUCCESS, POST_FAILURE, FETCH_SCHOOL_SUCCESS
 } from '../actions';
+import dummyData from '../dummy-data';
 
 const initialState = {
    bubls: [],
@@ -46,7 +47,8 @@ export default (state = initialState, action) => {
          return {
             ...state,
             fetchingBubls: false,
-            bubls: action.payload
+            bubls: dummyData
+            // bubls: action.payload
          }
       }
       case FETCH_FAILURE: {
