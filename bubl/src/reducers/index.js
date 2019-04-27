@@ -10,6 +10,7 @@ const initialState = {
    fetchingBubls: false,
    postingBubls: false,
    loggingIn: false,
+   loginError: null,
    error: ''
 }
 
@@ -18,7 +19,8 @@ export default (state = initialState, action) => {
       case LOGIN_START: {
          return {
             ...state,
-            loggingIn: true
+            loggingIn: true,
+            loginError: null,
          }
       }
       case LOGIN_SUCCESS: {
@@ -30,7 +32,8 @@ export default (state = initialState, action) => {
       case LOGIN_FAILURE: {
          return {
             ...state,
-            loggingIn: false
+            loggingIn: false,
+            loginError: "failed login"
          }
       }
       case FETCH_START: {
