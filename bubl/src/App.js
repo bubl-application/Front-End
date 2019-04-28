@@ -17,15 +17,11 @@ function App() {
           <li>
             <Link to="/schools">Schools</Link>
           </li>
-          <li>
-            <Link to="/bublpages">Bubl Page</Link>
-          </li>
         </ul>
         <Route path="/login" component={Login} />
         {/* <PrivateRoute exact path="/schools" component={SchoolsList} /> */}
         <Route exact path="/schools" component={SchoolsList} />
         <Route path="/schools/:id" component={BublPage} />
-        <Route path="/bublpages" component={BublPage} />
         </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {schools} from '../dummy-data';
+import {schools, dummyData} from '../dummy-data';
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -32,8 +32,8 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 
-export const getBubls = () => dispatch => {
-   dispatch({type: FETCH_SUCCESS});
+export const getBubls = id => dispatch => {
+  dispatch({type: FETCH_SUCCESS, payload: dummyData})
 
    // dispatch({type: FETCH_START});
    // axios.get('')
