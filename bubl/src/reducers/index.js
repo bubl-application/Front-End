@@ -3,7 +3,7 @@ import {
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    POST_START, POST_SUCCESS, POST_FAILURE, FETCH_SCHOOL_SUCCESS
 } from '../actions';
-import dummyData from '../dummy-data';
+import {dummyData} from '../dummy-data';
 
 const initialState = {
    bubls: [],
