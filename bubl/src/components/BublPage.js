@@ -2,28 +2,16 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getBubls } from '../actions';
 import InputBubl from './InputBubl';
-import dummyData from '../dummy-data.js'
 
 class BublPage extends Component {
-  state = {
-    bubls: []
-  }
 
    componentDidMount() {
-      this.props.getBubls();
-      //const id = this.props.match.params.id;
-      
+     const id = this.props.match.params.id;
       // later this will be a get request to get bubls for the specific school
-      //this.fetchBubbles(id);
-   }
-
-   fetchBubbles = id => {
-      // all just mocked for now.
-      this.setState();
+     this.props.getBubls(id);    
    }
 
    render() {
-      console.log(this.state.bubls);
       return (
          <div className="bubl-page">
          <h2>List of Bubls</h2>            

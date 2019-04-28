@@ -1,43 +1,5 @@
 import axios from 'axios';
-
-let schools = [
-      {
-        id: 1,
-        name: 'Ben',
-        age: 30,
-        email: 'ben@lambdaschool.com'
-      },
-      {
-        id: 2,
-        name: 'Austen',
-        age: 45,
-        email: 'austen@lambdaschool.com'
-      },
-      {
-        id: 3,
-        name: 'Ryan',
-        age: 15,
-        email: 'ryan@lambdaschool.com'
-      },
-      {
-        id: 4,
-        name: 'Dustin',
-        age: 25,
-        email: 'D-munny@lambdaschool.com'
-      },
-      {
-        id: 5,
-        name: 'Sean',
-        age: 35,
-        email: 'sean@lambdaschool.com'
-      },
-      {
-        id: 6,
-        name: 'Michelle',
-        age: 67,
-        email: 'michelle@gmail.com'
-      }
-    ]
+import {schools, bubls} from '../data';
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -70,8 +32,8 @@ export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 
-export const getBubls = () => dispatch => {
-   dispatch({type: FETCH_SUCCESS});
+export const getBubls = id => dispatch => {
+  dispatch({type: FETCH_SUCCESS, payload: bubls})
 
    // dispatch({type: FETCH_START});
    // axios.get('')
