@@ -1,4 +1,4 @@
-export const dummyData = [
+export const bubls = [
    {
      id: 1,
      bublname: "pokemon",
