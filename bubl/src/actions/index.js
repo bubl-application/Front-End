@@ -62,9 +62,12 @@ export const postBubl = bublmessage => dispatch => {
    //    })
 }
 
+export const FETCH_SCHOOL_START = "FETCH_SCHOOL_START";
 export const FETCH_SCHOOL_SUCCESS = "FETCH_SCHOOL_SUCCESS";
 
 export const getSchools = () => dispatch => {
+  dispatch({ type: FETCH_SCHOOL_START });
+
   axios
   .get("https://cors-anywhere.herokuapp.com/https://bublapplication.herokuapp.com/students")
     .then(res => {    
