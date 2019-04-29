@@ -29,8 +29,8 @@ class SchoolsList extends Component {
             {/* {this.props.schools.length > 0  && (
             )} */}
           
-            {this.props.schools.map(friend => {
-              return <li><Link to={`/schools/${friend.id}`}>{friend.name}</Link></li> }
+            {this.props.schools.map(school => {
+              return <li><Link to={`/schools/${school.school_id}`}>{school.schoolName}</Link></li> }
             )}          
   
           </ul>

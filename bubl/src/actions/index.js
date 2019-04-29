@@ -65,7 +65,11 @@ export const postBubl = bublmessage => dispatch => {
 export const FETCH_SCHOOL_SUCCESS = "FETCH_SCHOOL_SUCCESS";
 
 export const getSchools = () => dispatch => {
+  axios
+  .get("https://cors-anywhere.herokuapp.com/https://bublapplication.herokuapp.com/students")
+    .then(res => {    
+      dispatch({type: FETCH_SCHOOL_SUCCESS, payload: res.data})
+    })
 
-  dispatch({type: FETCH_SCHOOL_SUCCESS, payload: schools})
 
 }
