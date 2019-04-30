@@ -2,11 +2,12 @@ import {
    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    POST_START, POST_SUCCESS, POST_FAILURE, FETCH_SCHOOL_SUCCESS,
-   FETCH_SCHOOL_START
+   FETCH_SCHOOL_START, FILTER_BUBLS
 } from '../actions';
 
 const initialState = {
    bubls: [],
+   filteredBubls: [],
    schools: [],
    fetchingSchools: false,
    fetchingBubls: false,
@@ -48,7 +49,8 @@ export default (state = initialState, action) => {
          return {
             ...state,
             fetchingBubls: false,
-            bubls: action.payload
+            bubls: action.payload,
+            filteredBubls: action.payload
          }
       }
       case FETCH_FAILURE: {
@@ -88,6 +90,25 @@ export default (state = initialState, action) => {
         ...state,        
         fetchingSchools: false,
         schools: action.payload
+      };
+      case FILTER_BUBLS:
+
+      let filtered;
+
+      console.log(action.payload.hashtag);
+      
+
+      if (action.payload.hashtag === 'all') {
+        filtered = action.payload.allBubls
+      } else {
+        filtered = action.payload.allBubls.filter(b => {
+          return b.hashtags.includes(action.payload.hashtag)
+        })      
+      }
+
+      return {
+        ...state,        
+        filteredBubls: filtered,
       };
       default: 
          return state;
