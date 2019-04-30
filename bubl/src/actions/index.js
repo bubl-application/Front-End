@@ -69,7 +69,7 @@ export const getSchools = () => dispatch => {
   dispatch({ type: FETCH_SCHOOL_START });
 
   axios
-  .get("https://cors-anywhere.herokuapp.com/https://bublapplication.herokuapp.com/students")
+  .get("https://bublapplication.herokuapp.com/students")
     .then(res => {    
       dispatch({type: FETCH_SCHOOL_SUCCESS, payload: res.data})
     })
