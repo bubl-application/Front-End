@@ -62,10 +62,17 @@ export const postBubl = bublmessage => dispatch => {
    //    })
 }
 
+export const FETCH_SCHOOL_START = "FETCH_SCHOOL_START";
 export const FETCH_SCHOOL_SUCCESS = "FETCH_SCHOOL_SUCCESS";
 
 export const getSchools = () => dispatch => {
+  dispatch({ type: FETCH_SCHOOL_START });
 
-  dispatch({type: FETCH_SCHOOL_SUCCESS, payload: schools})
+  axios
+  .get("https://bublapplication.herokuapp.com/students")
+    .then(res => {    
+      dispatch({type: FETCH_SCHOOL_SUCCESS, payload: res.data})
+    })
+
 
 }

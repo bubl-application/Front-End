@@ -25,12 +25,13 @@ class SchoolsList extends Component {
     return (      
         <div>
           <h2>Select a school</h2>
+          {this.props.fetchingSchools && this.props.schools.length === 0 && <p>Loading...</p>}
           <ul>
             {/* {this.props.schools.length > 0  && (
             )} */}
           
-            {this.props.schools.map(friend => {
-              return <li><Link to={`/schools/${friend.id}`}>{friend.name}</Link></li> }
+            {this.props.schools.map(school => {
+              return <li key={school.school_id}><Link to={`/schools/${school.school_id}`}>{school.schoolName}</Link></li> }
             )}          
   
           </ul>
@@ -41,7 +42,10 @@ class SchoolsList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { schools: state.schools}
+  return { 
+    schools: state.schools,
+    fetchingSchools: state.fetchingSchools
+  }
 }
 
 export default connect(mapStateToProps, {getSchools})(SchoolsList);
