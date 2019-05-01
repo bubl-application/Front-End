@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getBubls } from '../actions';
 import { Route, Link } from 'react-router-dom';
 import Bubl from './Bubl';
 import { getBubls, filterByHashTag } from '../actions';
@@ -49,11 +48,10 @@ class BublPage extends Component {
             instead of redux state  */}
             {this.props.filteredBubls.map((bubl, index) => (
               <>
-                 <Link exact to="/bubl">{bubl.bublname}</Link> <div>( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))} )</div>
+                 <Link exact to="/bubl">{bubl.bublname}</Link> 
+                 <div>( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))} )</div>
               </>
             ))}
-
-            <Route exact path="/bubl" component={Bubl} />
          </div>
       )
    }
