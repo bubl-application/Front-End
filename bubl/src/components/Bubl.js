@@ -9,19 +9,12 @@ class Bubl extends Component {
 
       // console.log(specificbubl);
 
+      // console.log(this.props.match.params.id);
+
       return (
          <div>
             <h2>Bubl</h2>
-            {/* {this.props.bubls.map(bubl => (
-               <>
-                  {bubl.messages.map(message => (
-                     <>
-                        <div>{message.username}: {message.text}</div>
-                     </>
-                  ))}
-               </>
-            ))} */}
-
+            <h3>{this.props.match.params.id}</h3>
             {this.props.bubls[this.props.match.params.id - 1].messages.map(message => (
                <div>
                   {message.username}: {message.text}
@@ -29,6 +22,8 @@ class Bubl extends Component {
             ))}
             <InputBubl />
          </div>
+
+         
       )
    }
 }

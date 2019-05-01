@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import { Input, LoginButton, Form } from "../StyledComponents";
 
 class Login extends React.Component {
   state = {
@@ -50,25 +51,25 @@ class Login extends React.Component {
     
     return (
       <div>
-        <h2>Login</h2>
-        {this.props.loginError && <p>Error on login, try again</p>}
-        <form onSubmit={this.handleLogin}>
-          <input
+        <Form onSubmit={this.handleLogin}>
+          <h2>Login</h2>
+          {this.props.loginError && <p>Error on login, try again</p>}
+          <Input
             type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
-          <input
+          <Input
             type="password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
           />
-          <button>
+          <LoginButton>
             Log in
-          </button>
-        </form>
+          </LoginButton>
+        </Form>
       </div>
     )
   }

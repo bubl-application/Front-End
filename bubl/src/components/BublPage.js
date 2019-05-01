@@ -39,16 +39,16 @@ class BublPage extends Component {
          <select value={this.state.value} onChange={this.handleChange}>
             <option value='all'>all</option>
 
-           {uniqueHashes.map(hashtag => <option value={hashtag}>{hashtag}</option> )}
+           {uniqueHashes.map((hashtag, index) => <option value={hashtag}>{hashtag}</option> )}
          </select>
 
             {/* might be better to get filteredBubls from component state
             instead of redux state  */}
             {this.props.filteredBubls.map((bubl, index) => (
-              <>
+              <div key={index}>
                  <Link exact to={`/bubl/${bubl.id}`}>{bubl.bublname}</Link> 
                  <div>( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))} )</div>
-              </>
+              </div>
             ))}
          </div>
       )
