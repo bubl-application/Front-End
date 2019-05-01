@@ -76,3 +76,9 @@ export const getSchools = () => dispatch => {
 
 
 }
+
+export const FILTER_BUBLS = "FILTER_BUBLS";
+
+export const filterByHashTag = (allBubls, hashtag) => dispatch => {
+  dispatch({ type: FILTER_BUBLS, payload: {allBubls, hashtag} });
+}
