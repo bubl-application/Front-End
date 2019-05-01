@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
-import Bubl from './Bubl';
+import { Link } from 'react-router-dom';
 import { getBubls, filterByHashTag } from '../actions';
-import InputBubl from './InputBubl';
 
 class BublPage extends Component {
   state = {
@@ -41,7 +39,7 @@ class BublPage extends Component {
          <select value={this.state.value} onChange={this.handleChange}>
             <option value='all'>all</option>
 
-           {uniqueHashes.map(hastag => <option value={hastag}>{hastag}</option> )}
+           {uniqueHashes.map(hashtag => <option value={hashtag}>{hashtag}</option> )}
          </select>
 
             {/* might be better to get filteredBubls from component state

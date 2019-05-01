@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import InputBubl from './InputBubl';
 
 class Bubl extends Component {
@@ -7,15 +8,25 @@ class Bubl extends Component {
       return (
          <div>
             <h2>Bubl</h2>
-            {/* {bubl.messages.map(message => (
+            {this.props.bubls.map(bubl => (
                <>
-                  <div>{message.username}: {message.text}</div>
+                  {bubl.messages.map(message => (
+                     <>
+                        <div>{message.username}: {message.text}</div>
+                     </>
+                  ))}
                </>
-            ))} */}
+            ))}
             <InputBubl />
          </div>
       )
    }
 }
 
-export default Bubl;
+const mapStateToProps = state => {
+   return {
+      bubls: state.bubls
+   }
+}
+
+export default connect(mapStateToProps)(Bubl);
