@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { getBubls } from '../actions';
-import InputBubl from './InputBubl';
+import { Route, Link } from 'react-router-dom';
+import Bubl from './Bubl';
 
 class BublPage extends Component {
 
@@ -17,15 +18,11 @@ class BublPage extends Component {
          <h2>List of Bubls</h2>            
             {this.props.bubls.map((bubl, index) => (
               <>
-                 <div>{bubl.bublname} ( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))})</div>
-                 {bubl.messages.map(message => (
-                    <>
-                       <div>{message.username}: {message.text}</div>
-                    </>
-                 ))}
-                 <InputBubl />
+                 <Link exact to="/bubl">{bubl.bublname}</Link> <div>( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))} )</div>
               </>
             ))}
+
+            <Route exact path="/bubl" component={Bubl} />
          </div>
       )
    }
