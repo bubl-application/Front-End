@@ -54,6 +54,7 @@ class BublPage extends Component {
       )
    }
 }
+
 const mapStateToProps = state => {
    return {
       bubls: state.bubls,
