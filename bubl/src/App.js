@@ -5,6 +5,7 @@ import SchoolsList from "./components/SchoolsList";
 import PrivateRoute from "./components/PrivateRoute";
 // import './App.css';
 import BublPage from './components/BublPage';
+import Bubl from './components/Bubl';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         {/* <PrivateRoute exact path="/schools" component={SchoolsList} /> */}
         <Route exact path="/schools" component={SchoolsList} />
         <Route path="/schools/:id" component={BublPage} />
+        <Route exact path="/bubl" component={Bubl} />
         </div>
     </div>
   );

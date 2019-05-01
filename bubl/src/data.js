@@ -39,6 +39,26 @@ export const bubls = [
       }
     ]
   },
+  {
+    id: 3,
+    bublname: "science", 
+    hashtags: ["school", "fun", "learning", "experiments"],
+    messages: [
+      {
+        username: "student01",
+        text:
+          "My favorite subject is ..."
+      },
+      {
+        username: "student02",
+        text: "Mine too!"
+      },
+      {
+        username: "student03",
+        text: "Can't wait to play the new game!"
+      }
+    ]
+  },
  ]
 
  export let schools = [
