@@ -33,7 +33,7 @@ class Bubl extends Component {
                   {message.username}: {message.text}
                </div>
             ))}
-            <InputBubl />
+            <InputBubl id={this.props.match.params.id} />
          </div>
       )
    }
