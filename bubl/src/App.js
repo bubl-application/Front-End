@@ -23,7 +23,7 @@ function App() {
         {/* <PrivateRoute exact path="/schools" component={SchoolsList} /> */}
         <Route exact path="/schools" component={SchoolsList} />
         <Route path="/schools/:id" component={BublPage} />
-        <Route exact path="/bubl" component={Bubl} />
+        <Route exact path="/bubl/:id" component={Bubl} />
         </div>
     </div>
   );

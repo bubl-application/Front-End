@@ -46,7 +46,7 @@ class BublPage extends Component {
             instead of redux state  */}
             {this.props.filteredBubls.map((bubl, index) => (
               <>
-                 <Link exact to="/bubl">{bubl.bublname}</Link> 
+                 <Link exact to={`/bubl/${bubl.id}`}>{bubl.bublname}</Link> 
                  <div>( {bubl.hashtags.map(hashtag => (<>#{hashtag} </>))} )</div>
               </>
             ))}
@@ -54,6 +54,7 @@ class BublPage extends Component {
       )
    }
 }
+
 const mapStateToProps = state => {
    return {
       bubls: state.bubls,
