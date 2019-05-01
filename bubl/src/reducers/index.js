@@ -95,9 +95,6 @@ export default (state = initialState, action) => {
 
       let filtered;
 
-      console.log(action.payload.hashtag);
-      
-
       if (action.payload.hashtag === 'all') {
         filtered = action.payload.allBubls
       } else {
