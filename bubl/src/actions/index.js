@@ -49,8 +49,21 @@ export const POST_START = "POST_START";
 export const POST_SUCCESS = "POST_SUCCESS";
 export const POST_FAILURE = "POST_FAILURE";
 
-export const postBubl = bublmessage => dispatch => {
-   //dispatch({type: POST_SUCCESS, payload: bublmessage});
+export const postBubl = (bublmessage, id) => dispatch => {
+
+  // badly written, but it fakes it.
+  let specificBubl = bubls.find(b => b.id == id)
+  const specificBublIndex = bubls.findIndex(b => b.id == id);
+
+  specificBubl.messages.push(bublmessage)
+
+  let newBubls = [
+    ...bubls.slice(0, specificBublIndex),
+    specificBubl,
+    ...bubls.slice(specificBublIndex + 1)
+  ];
+  
+   dispatch({type: POST_SUCCESS, payload: newBubls});
 
    // dispatch({type: POST_START});
    // axios.post('', bublmessage)
@@ -60,6 +73,8 @@ export const postBubl = bublmessage => dispatch => {
    //    .catch(err => {
    //       dispatch({type: POST_FAILURE, payload: err})
    //    })
+
+
 }
 
 export const FETCH_SCHOOL_START = "FETCH_SCHOOL_START";
