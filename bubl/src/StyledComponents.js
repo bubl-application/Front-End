@@ -5,7 +5,6 @@ export const NavBar = styled.nav`
    text-align: center;
    background-color: dodgerblue;
    text-decoration: none;
-
 `;
 
 export const NavLinkStyled = styled.link`
