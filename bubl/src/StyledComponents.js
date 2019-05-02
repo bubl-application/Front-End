@@ -4,6 +4,8 @@ export const NavBar = styled.nav`
    margin: 0 auto;
    text-align: center;
    background-color: dodgerblue;
+   text-decoration: none;
+
 `;
 
 export const NavLinkStyled = styled.link`
@@ -30,13 +32,19 @@ export const Input = styled.input`
 
 export const LoginButton = styled.button`
    background-color: dodgerblue;
-   border: 1px solid dodgerblue;
+   border: 2px solid dodgerblue;
    border-radius: 3px;
    margin: 3px;
    padding: 10px;
    font-size: 14px;
    color: #fff;
-   width: 100%;
+   width: 275px;
+   cursor: pointer;
+
+   &:hover {
+      background-color: #fff;
+      color: dodgerblue;
+   }
 `;
 
 export const Button = styled.button`

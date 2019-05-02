@@ -3,7 +3,7 @@ import { Route, NavLink } from "react-router-dom";
 import Login from './components/Login';
 import SchoolsList from "./components/SchoolsList";
 import PrivateRoute from "./components/PrivateRoute";
-// import './App.css';
+import './App.css';
 import BublPage from './components/BublPage';
 import Bubl from './components/Bubl';
 import { NavBar, NavLinkStyled } from './StyledComponents';
