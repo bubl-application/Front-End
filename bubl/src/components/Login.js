@@ -54,6 +54,7 @@ class Login extends React.Component {
         <Form onSubmit={this.handleLogin}>
           <h2>Login</h2>
           {this.props.loginError && <p>Error on login, try again</p>}
+          <label for="username">Enter Your Username:</label>
           <Input
             type="text"
             name="username"
@@ -61,6 +62,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
             placeholder="Username"
           />
+          <label for="password">Enter Your Password:</label>
           <Input
             type="password"
             name="password"
