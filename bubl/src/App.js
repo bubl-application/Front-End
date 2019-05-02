@@ -17,8 +17,8 @@ function App() {
           <NavLink to="/schools">Schools</NavLink>
         </NavBar>
         <Route path="/login" component={Login} />
-        {/* <PrivateRoute exact path="/schools" component={SchoolsList} /> */}
-        <Route exact path="/schools" component={SchoolsList} />
+        <PrivateRoute exact path="/schools" component={SchoolsList} />
+        {/* <Route exact path="/schools" component={SchoolsList} /> */}
         <Route path="/schools/:id" component={BublPage} />
         <Route exact path="/bubl/:id" component={Bubl} />
         </div>
