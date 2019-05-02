@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee:400,400i');
+
 .App {
   text-align: center;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 .App-logo {
@@ -31,3 +34,12 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: 'ABeeZee', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
