@@ -15,6 +15,8 @@ class Bubl extends Component {
 
       // console.log(specificbubl);
 
+      // console.log(this.props.match.params.id);
+
       return (
          <div>
             <h2>Bubl</h2>
@@ -35,6 +37,8 @@ class Bubl extends Component {
             ))}
             <InputBubl id={this.props.match.params.id} />
          </div>
+
+         
       )
    }
 }

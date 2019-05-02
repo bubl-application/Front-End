@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { postBubl } from '../actions';
+import {Button, Input} from '../StyledComponents';
 
 class InputBubl extends Component {
    state = {
@@ -26,12 +27,12 @@ class InputBubl extends Component {
    render() {    
       return (
          <form onSubmit={this.addNewBublMessage}>
-            <input
+            <Input
                name="text" 
                value={this.state.text} 
                onChange={this.handleChange}
                placeholder="Enter message"/>
-            <button type="submit">Add New Message</button>
+            <Button type="submit">Add New Message</Button>
          </form>
       )
    }
