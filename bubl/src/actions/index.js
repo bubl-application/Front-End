@@ -8,24 +8,19 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = credentials => dispatch => {
    dispatch({type: LOGIN_START});
 
-   const { username, password } = credentials;
-   
-   if (username === 'user' && password === 'pass') {
-      dispatch({ type: LOGIN_SUCCESS });      
-      return true
-   } else {
+   return axios.post('https://bublapplication.herokuapp.com/students/login', credentials)
+      .then(res => {
+         localStorage.setItem('token', res.data.token);
+        console.log(res)
+         dispatch({type: LOGIN_SUCCESS});
+      })
+      .catch(err => {
+         console.log("login error:", err);
+        // if (err.response && err.response.status === 403) {
+          localStorage.removeItem("token");
+        // }
       dispatch({ type: LOGIN_FAILURE });
-   }
-
-//    axios.post('', credentials)
-//       .then(res => {
-//          localStorage.setItem('token', res.data.payload);
-//          dispatch({type: LOGIN_SUCCESS, payload: res.data.payload});
-//       })
-//       .catch(err => {
-//          console.log("login error:", err);
-//          dispatch({type: LOGIN_FAILURE, payload: err});
-//       })
+      })
 }
 
 export const FETCH_START = "FETCH_START";
@@ -84,7 +79,9 @@ export const getSchools = () => dispatch => {
   dispatch({ type: FETCH_SCHOOL_START });
 
   axios
-  .get("https://bublapplication.herokuapp.com/students")
+  .get("https://bublapplication.herokuapp.com/students", {
+    headers: { Authorization: localStorage.getItem("token") }
+  })
     .then(res => {    
       dispatch({type: FETCH_SCHOOL_SUCCESS, payload: res.data})
     })
