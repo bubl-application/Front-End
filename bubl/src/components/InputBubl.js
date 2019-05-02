@@ -5,7 +5,7 @@ import { postBubl } from '../actions';
 class InputBubl extends Component {
    state = {
       text: "",
-      username: this.props.username
+      username: 'john smith'
    }
 
    handleChange = e => {
@@ -17,13 +17,13 @@ class InputBubl extends Component {
 
    addNewBublMessage = e => {
       e.preventDefault();
-      this.props.postBubl(this.state);
+      this.props.postBubl(this.state, this.props.id);
       this.setState({
          text: ""
       })
    }
 
-   render() {
+   render() {    
       return (
          <form onSubmit={this.addNewBublMessage}>
             <input
