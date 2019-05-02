@@ -20,10 +20,6 @@ class Bubl extends Component {
       return (
          <div>
             <h2>Bubl</h2>
-<<<<<<< HEAD
-            <h3>{this.props.match.params.id}</h3>
-            {this.props.bubls[this.props.match.params.id - 1].messages.map(message => (
-=======
             {/* {this.props.bubls.map(bubl => (
                <>
                   {bubl.messages.map(message => (
@@ -35,7 +31,6 @@ class Bubl extends Component {
             ))} */}
 
             {this.props.bubls.length > 0 && this.props.bubls[this.props.match.params.id - 1].messages.map(message => (
->>>>>>> master
                <div>
                   {message.username}: {message.text}
                </div>
