@@ -8,24 +8,25 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = credentials => dispatch => {
    dispatch({type: LOGIN_START});
 
-   const { username, password } = credentials;
+  //  const { username, password } = credentials;
    
-   if (username === 'user' && password === 'pass') {
-      dispatch({ type: LOGIN_SUCCESS });      
-      return true
-   } else {
-      dispatch({ type: LOGIN_FAILURE });
-   }
+  //  if (username === 'user' && password === 'pass') {
+  //     dispatch({ type: LOGIN_SUCCESS });      
+  //     return true
+  //  } else {
+  //     dispatch({ type: LOGIN_FAILURE });
+  //  }  
 
-//    axios.post('', credentials)
-//       .then(res => {
-//          localStorage.setItem('token', res.data.payload);
-//          dispatch({type: LOGIN_SUCCESS, payload: res.data.payload});
-//       })
-//       .catch(err => {
-//          console.log("login error:", err);
-//          dispatch({type: LOGIN_FAILURE, payload: err});
-//       })
+   axios.post('https://bublapplication.herokuapp.com/students/login', credentials)
+      .then(res => {
+         localStorage.setItem('token', res.data.token);
+        console.log(res)
+         dispatch({type: LOGIN_SUCCESS});
+      })
+      .catch(err => {
+         console.log("login error:", err);
+        //  dispatch({type: LOGIN_FAILURE, payload: err});
+      })
 }
 
 export const FETCH_START = "FETCH_START";
