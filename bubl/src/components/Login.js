@@ -24,9 +24,13 @@ class Login extends React.Component {
   handleLogin = (e) => {
     e.preventDefault()
 
-    if (this.props.login(this.state.credentials)) {
-      this.props.history.push("/schools")
-    }
+    // if (this.props.login(this.state.credentials)) {
+    //   this.props.history.push("/schools")
+    // }
+
+    this.props
+      .login(this.state.credentials)
+      .then(() => this.props.history.push("/schools"));
 
     // axios
     // .post("http://localhost:5000/api/login", this.state.credentials)
