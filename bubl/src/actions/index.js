@@ -28,16 +28,36 @@ export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 
 export const getBubls = id => dispatch => {
-  dispatch({type: FETCH_SUCCESS, payload: bubls})
+//   dispatch({type: FETCH_SUCCESS, payload: bubls})
 
-   // dispatch({type: FETCH_START});
-   // axios.get('')
-   //    .then(res => {
-   //       dispatch({type: FETCH_SUCCESS, payload: res.data})
-   //    })
-   //    .catch(err => {
-   //       dispatch({type: FETCH_FAILURE, payload: err})
-   //    })
+   dispatch({type: FETCH_START});
+   axios.get('https://bublapplication.herokuapp.com/threads', {
+      headers: { Authorization: localStorage.getItem("token") }})
+      .then(res => {
+         console.log(res);
+         dispatch({type: FETCH_SUCCESS, payload: res.data})
+      })
+      .catch(err => {
+         dispatch({type: FETCH_FAILURE, payload: err})
+      })
+}
+
+export const FETCH_COMMENTS_START = "FETCH_COMMENTS_START";
+export const FETCH_COMMENTS_SUCCESS = "FETCH_COMMENTS_SUCCESS";
+export const FETCH_COMMENTS_FAILURE = "FETCH_COMMENTS_FAILURE";
+
+export const getComments = id => dispatch => {
+
+   dispatch({type: FETCH_COMMENTS_START});
+   axios.get(`https://bublapplication.herokuapp.com/threads/comments/${id}`, {
+      headers: { Authorization: localStorage.getItem("token") }})
+      .then(res => {
+         console.log(res);
+         dispatch({type: FETCH_COMMENTS_SUCCESS, payload: res.data})
+      })
+      .catch(err => {
+         dispatch({type: FETCH_COMMENTS_FAILURE, payload: err})
+      })
 }
 
 export const POST_START = "POST_START";
@@ -68,8 +88,6 @@ export const postBubl = (bublmessage, id) => dispatch => {
    //    .catch(err => {
    //       dispatch({type: POST_FAILURE, payload: err})
    //    })
-
-
 }
 
 export const FETCH_SCHOOL_START = "FETCH_SCHOOL_START";
@@ -85,8 +103,6 @@ export const getSchools = () => dispatch => {
     .then(res => {    
       dispatch({type: FETCH_SCHOOL_SUCCESS, payload: res.data})
     })
-
-
 }
 
 export const FILTER_BUBLS = "FILTER_BUBLS";

@@ -18,7 +18,9 @@ class InputBubl extends Component {
 
    addNewBublMessage = e => {
       e.preventDefault();
-      this.props.postBubl(this.state, this.props.id);
+      if (this.state.text !== '') {
+         this.props.postBubl(this.state, this.props.id);
+      }
       this.setState({
          text: ""
       })

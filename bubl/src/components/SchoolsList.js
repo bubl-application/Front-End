@@ -23,8 +23,6 @@ class SchoolsList extends Component {
   
 
   render() {
-    console.log(this.props.schools);
-
     const schoolDisplayed = [];
 
     return (      
