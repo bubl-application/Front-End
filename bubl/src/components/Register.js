@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
-import { Input, LoginButton, Form, Button } from "../StyledComponents";
+import { Label, Input, LoginButton, Form, Button } from "../StyledComponents";
 
 class Register extends Component {
    state = {
@@ -29,17 +29,17 @@ class Register extends Component {
       return (
          <Form>
             <h2>Register</h2>
-            <label for="firstName">First Name:</label>
+            <Label htmlFor="firstName">First Name:</Label>
             <Input name="firstName" value={this.state.newUser.firstName} onChange={this.handleChange} placeholder="First Name" />
-            <label for="lastName">Last Name:</label>
+            <Label htmlFor="lastName">Last Name:</Label>
             <Input name="lastName" value={this.state.newUser.lastName} onChange={this.handleChange} placeholder="Last Name" />
-            <label for="username">Username:</label>
+            <Label htmlFor="username">Username:</Label>
             <Input name="username" value={this.state.newUser.username} onChange={this.handleChange} placeholder="Username" />
-            <label for="password">Password:</label>
+            <Label htmlFor="password">Password:</Label>
             <Input name="password" value={this.state.newUser.password} onChange={this.handleChange} placeholder="Password" />
-            <label for="age">Age:</label>
+            <Label htmlFor="age">Age:</Label>
             <Input name="age" value={this.state.newUser.age} onChange={this.handleChange} placeholder="Age" />
-            <label for="school_id">School:</label>
+            <Label htmlFor="school_id">School:</Label>
             <Input name="school_id" value={this.state.newUser.school_id} onChange={this.handleChange} placeholder="School" />
             <LoginButton>Register</LoginButton>
          </Form>
