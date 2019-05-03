@@ -28,6 +28,7 @@ class Register extends Component {
 
    handleSubmit = e => {
     e.preventDefault()
+  
       this.props.register(this.state.newUser)
       .then(() => this.props.history.push("/login"));
    }
