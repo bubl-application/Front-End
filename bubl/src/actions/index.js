@@ -39,6 +39,7 @@ export const register = (newUser) => dispatch => {
   .catch(err => {
         console.log("login error:", err);
         dispatch({ type: REGISTER_FAILURE });
+        return false
       })
 
 }
