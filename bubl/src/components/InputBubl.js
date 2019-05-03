@@ -7,6 +7,17 @@ class InputBubl extends Component {
    state = {
       text: "",
       username: 'john smith'
+
+
+      // bublName: "pokemon",
+      // bubl_id: 1,
+      // comments: "awesome comment",
+      // id: 1,
+      // school_id: 1,
+      // student_id: 2,
+      // thread_id: 1,
+      // title: "I cant wait for detective pikachu",
+      // username: "winterIsComing",
    }
 
    handleChange = e => {

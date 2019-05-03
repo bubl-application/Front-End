@@ -67,27 +67,28 @@ export const POST_FAILURE = "POST_FAILURE";
 export const postBubl = (bublmessage, id) => dispatch => {
 
   // badly written, but it fakes it.
-  let specificBubl = bubls.find(b => b.id == id)
-  const specificBublIndex = bubls.findIndex(b => b.id == id);
 
-  specificBubl.messages.push(bublmessage)
+//   let specificBubl = bubls.find(b => b.id == id)
+//   const specificBublIndex = bubls.findIndex(b => b.id == id);
 
-  let newBubls = [
-    ...bubls.slice(0, specificBublIndex),
-    specificBubl,
-    ...bubls.slice(specificBublIndex + 1)
-  ];
+//   specificBubl.messages.push(bublmessage)
+
+//   let newBubls = [
+//     ...bubls.slice(0, specificBublIndex),
+//     specificBubl,
+//     ...bubls.slice(specificBublIndex + 1)
+//   ];
   
-   dispatch({type: POST_SUCCESS, payload: newBubls});
+   // dispatch({type: POST_SUCCESS, payload: newBubls});
 
-   // dispatch({type: POST_START});
-   // axios.post('', bublmessage)
-   //    .then(res => {
-   //       dispatch({type: POST_SUCCESS, payload: res.data})
-   //    })
-   //    .catch(err => {
-   //       dispatch({type: POST_FAILURE, payload: err})
-   //    })
+   dispatch({type: POST_START});
+   axios.post(`https://bublapplication.herokuapp.com/threads/comments/${id}`, bublmessage)
+      .then(res => {
+         dispatch({type: POST_SUCCESS, payload: res.data})
+      })
+      .catch(err => {
+         dispatch({type: POST_FAILURE, payload: err})
+      })
 }
 
 export const FETCH_SCHOOL_START = "FETCH_SCHOOL_START";
