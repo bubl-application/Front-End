@@ -23,6 +23,27 @@ export const login = credentials => dispatch => {
       })
 }
 
+export const REGISTER_START = "REGISTER_START";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+
+export const register = (newUser) => dispatch => {
+  dispatch({type: REGISTER_START});
+  console.log(newUser);  
+  
+  return axios.post('https://bublapplication.herokuapp.com/students/register', newUser)
+  .then(res => {
+    console.log(res)
+    dispatch({type: REGISTER_SUCCESS});
+  })
+  .catch(err => {
+        console.log("login error:", err);
+        dispatch({ type: REGISTER_FAILURE });
+        return false
+      })
+
+}
+
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
