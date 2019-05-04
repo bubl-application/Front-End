@@ -28,14 +28,17 @@ class Register extends Component {
 
    handleSubmit = e => {
     e.preventDefault()
+    
       this.props.register(this.state.newUser)
-      .then(() => this.props.history.push("/login"));
+      .then(res => (res === false) ? null : this.props.history.push("/login")      
+      );
    }
 
    render() {
       return (
          <Form onSubmit={this.handleSubmit}>
             <h2>Register</h2>
+            {this.props.registerError && <p>Error on sign up, try again</p>}
             <label for="firstName">First Name:</label>
             <Input name="firstName" value={this.state.newUser.firstName} onChange={this.handleChange} placeholder="First Name" />
             <label for="lastName">Last Name:</label>
@@ -56,7 +59,7 @@ class Register extends Component {
 
 const mapStateToProps = state => {
    return {
-
+    registerError: state.registerError
    };
  };
  

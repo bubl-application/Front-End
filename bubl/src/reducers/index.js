@@ -1,5 +1,6 @@
 import {
    LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE,
+   REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    POST_START, POST_SUCCESS, POST_FAILURE, FETCH_SCHOOL_SUCCESS,
    FETCH_SCHOOL_START, FILTER_BUBLS
@@ -14,6 +15,8 @@ const initialState = {
    postingBubls: false,
    loggingIn: false,
    loginError: null,
+   registering: false,
+   registerError: null,
    error: ''
 }
 
@@ -37,6 +40,26 @@ export default (state = initialState, action) => {
             ...state,
             loggingIn: false,
             loginError: "failed login"
+         }
+      }
+      case REGISTER_START: {
+         return {
+            ...state,
+            registering: true,
+            registerError: null,
+         }
+      }
+      case REGISTER_SUCCESS: {
+         return {
+            ...state,
+            registering: false
+         }
+      }
+      case REGISTER_FAILURE: {
+         return {
+            ...state,
+            registering: false,
+            registerError: "failed sign up"
          }
       }
       case FETCH_START: {
