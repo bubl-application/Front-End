@@ -12,7 +12,7 @@ export const login = credentials => dispatch => {
       .then(res => {
          localStorage.setItem('token', res.data.token);
         console.log(res)
-         dispatch({type: LOGIN_SUCCESS});
+         dispatch({type: LOGIN_SUCCESS, payload: res.data.id});
       })
       .catch(err => {
          console.log("login error:", err);
@@ -103,8 +103,12 @@ export const postBubl = (bublmessage, id) => dispatch => {
    // dispatch({type: POST_SUCCESS, payload: newBubls});
 
    dispatch({type: POST_START});
-   axios.post(`https://bublapplication.herokuapp.com/threads/comments/${id}`, bublmessage)
+   axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
+    headers: { Authorization: localStorage.getItem("token") }
+  })
       .then(res => {
+        console.log(res);
+        
          dispatch({type: POST_SUCCESS, payload: res.data})
       })
       .catch(err => {

@@ -12,6 +12,10 @@ const initialState = {
    comments: [],
    filteredBubls: [],
    schools: [],
+   "student_id": null,
+   "school_id": null,
+  "bubl_id": null,
+  "thread_id": null,
    fetchingSchools: false,
    fetchingBubls: false,
    postingBubls: false,
@@ -29,12 +33,14 @@ export default (state = initialState, action) => {
             ...state,
             loggingIn: true,
             loginError: null,
+            student_id: null
          }
       }
       case LOGIN_SUCCESS: {
          return {
             ...state,
-            loggingIn: false
+            loggingIn: false,
+            student_id: action.payload
          }
       }
       case LOGIN_FAILURE: {
@@ -87,12 +93,18 @@ export default (state = initialState, action) => {
       }
       case FETCH_COMMENTS_START: {
          return {
-            ...state
+            ...state,
+            "school_id": null,
+            "bubl_id": null,
+            "thread_id": null,
          }
       }
       case FETCH_COMMENTS_SUCCESS: {
          return {
             ...state,
+            "school_id": action.payload[0].school_id,
+            "bubl_id": action.payload[0].bubl_id,
+            "thread_id": action.payload[0].thread_id,
             comments: action.payload
          }
       }
