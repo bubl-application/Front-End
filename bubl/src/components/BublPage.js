@@ -53,7 +53,7 @@ class BublPage extends Component {
                </div>
                ))} */}
 
-               {this.props.bubls.map((bubl, index) => (
+               {this.props.bubls.length > 0 && this.props.bubls.map((bubl, index) => (
                   <div key={index}>
                      <Link exact to={`/bubl/${bubl.id}`}>{bubl.bublName}</Link>
                   </div>
