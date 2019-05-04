@@ -18,11 +18,11 @@ class Bubl extends Component {
 
       // console.log(specificbubl);
 
-      // console.log(this.props.match.params.id);
+      // console.log(this.props.match.params.id);      
 
       return (
          <div>
-            <h2>Bubl</h2>
+            { this.props.comments.length > 0 && <h2>{this.props.comments[0].title}</h2> }
             {/* {this.props.bubls.map(bubl => (
                <>
                   {bubl.messages.map(message => (
