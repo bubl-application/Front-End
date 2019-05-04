@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
 import {getSchools} from "../actions";
-import axios from 'axios';
 
 class SchoolsList extends Component {
 
@@ -21,18 +20,22 @@ class SchoolsList extends Component {
 
   }
 
+  
+
   render() {
+    const schoolDisplayed = [];
+
     return (      
         <div>
           <h2>Select a school</h2>
           {this.props.fetchingSchools && this.props.schools.length === 0 && <p>Loading...</p>}
           <ul>
-            {/* {this.props.schools.length > 0  && (
-            )} */}
-          
             {this.props.schools.map(school => {
-              return <li key={school.school_id}><Link to={`/schools/${school.school_id}`}>{school.schoolName}</Link></li> }
-            )}          
+              if (!schoolDisplayed.includes(school.school_id)) {
+                schoolDisplayed.push(school.school_id)
+                return <li><Link to={`/schools/${school.school_id}`}>{school.schoolName}</Link></li>
+              }
+            })}          
   
           </ul>
         </div>

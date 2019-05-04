@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const NavBar = styled.nav`
    margin: 0 auto;
+   padding: 10px;
    text-align: center;
    background-color: dodgerblue;
    text-decoration: none;
@@ -18,6 +19,13 @@ export const Form = styled.form`
    width: 300px;
    border: .5px solid lightgray;
    border-radius: 5px;
+   display: flex;
+   flex-direction: column;
+`;
+
+export const Label = styled.label`
+   text-align: left;
+   margin: 5px;
 `;
 
 export const Input = styled.input`

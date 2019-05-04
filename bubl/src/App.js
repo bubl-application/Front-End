@@ -7,16 +7,16 @@ import PrivateRoute from "./components/PrivateRoute";
 import './App.css';
 import BublPage from './components/BublPage';
 import Bubl from './components/Bubl';
-import { NavBar, NavLinkStyled } from './StyledComponents';
+import { NavBar } from './StyledComponents';
 
 function App() {
   return (
     <div className="App">
         <div>
         <NavBar>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/schools">Schools</NavLink>
+          <NavLink to="/login" activeClassName="activeNav">Login</NavLink>
+          <NavLink to="/register" activeClassName="activeNav">Register</NavLink>
+          <NavLink to="/schools" activeClassName="activeNav">Schools</NavLink>
         </NavBar>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/schools" component={SchoolsList} />

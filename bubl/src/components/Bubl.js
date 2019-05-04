@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import InputBubl from './InputBubl';
-import { getBubls } from '../actions';
+import { getBubls, getComments } from '../actions';
 
 class Bubl extends Component {
 
   componentDidMount() {
-    this.props.getBubls();    
+   //  this.props.getBubls(); 
+
+    const id = this.props.match.params.id;
+    this.props.getComments(id);   
   }
 
    render() {
@@ -30,11 +33,16 @@ class Bubl extends Component {
                </>
             ))} */}
 
-            {this.props.bubls.length > 0 && this.props.bubls[this.props.match.params.id - 1].messages.map(message => (
+            {/* {this.props.bubls.length > 0 && this.props.bubls[this.props.match.params.id - 1].messages.map(message => (
                <div>
                   {message.username}: {message.text}
                </div>
+            ))} */}
+
+            {this.props.comments.map(comment => (
+               <div><strong>{comment.username}:</strong> {comment.comments}</div>
             ))}
+
             <InputBubl id={this.props.match.params.id} />
          </div>
 
@@ -45,8 +53,8 @@ class Bubl extends Component {
 
 const mapStateToProps = state => {
    return {
-      bubls: state.bubls
+      comments: state.comments
    }
 }
 
-export default connect(mapStateToProps, {getBubls})(Bubl);
+export default connect(mapStateToProps, {getBubls, getComments})(Bubl);

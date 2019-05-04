@@ -40,6 +40,27 @@ body {
 }
 
 a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+nav a {
+  margin: 10px;
+  padding: 10px;
+  color: #fff;
   text-decoration: none;
 }
 
+nav a:hover {
+  background-color: #fff;
+  color: #2E008F;
+}
+
+ul {
+  list-style: none;
+}
+
+.activeNav {
+  background-color: #fff;
+  color: #2E008F;
+}
