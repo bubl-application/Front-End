@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { postBubl } from '../actions';
+import { postBubl, getComments } from '../actions';
 import {Button, Input} from '../StyledComponents';
 
 class InputBubl extends Component {
@@ -39,6 +39,7 @@ class InputBubl extends Component {
       e.preventDefault();
       if (this.state.comments !== '') {
          this.props.postBubl(this.state, this.props.id);
+         this.props.getComments(this.props.id)
       }
       this.setState({
          comments: ""
@@ -72,4 +73,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, {postBubl})(InputBubl);
+export default connect(mapStateToProps, {postBubl, getComments})(InputBubl);
