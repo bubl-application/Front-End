@@ -19,6 +19,7 @@ const initialState = {
    fetchingSchools: false,
    fetchingBubls: false,
    postingBubls: false,
+   addCommentError: null,
    loggingIn: false,
    loginError: null,
    registering: false,
@@ -117,6 +118,7 @@ export default (state = initialState, action) => {
       case ADD_COMMENT_START: {
          return {
             ...state,
+            addCommentError: null,
             postingBubls: true
          }
       }
@@ -131,7 +133,7 @@ export default (state = initialState, action) => {
          return {
             ...state,
             postingBubls: false,
-            error: action.payload
+            addCommentError: "add comment failed"
          }
       }
       case FETCH_SCHOOL_START:
