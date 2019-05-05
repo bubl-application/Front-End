@@ -103,7 +103,7 @@ export const postBubl = (bublmessage, id) => dispatch => {
    // dispatch({type: POST_SUCCESS, payload: newBubls});
 
    dispatch({type: POST_START});
-   axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
+   return axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
     headers: { Authorization: localStorage.getItem("token") }
   })
       .then(res => {
