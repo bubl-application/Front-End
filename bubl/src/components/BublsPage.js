@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getBubls, getComments, filterByHashTag } from '../actions';
 
-class BublPage extends Component {
+class BublsPage extends Component {
   state = {
     value: ''
   }
@@ -72,4 +72,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, {getBubls, getComments, filterByHashTag})(BublPage);
+export default connect(mapStateToProps, {getBubls, getComments, filterByHashTag})(BublsPage);

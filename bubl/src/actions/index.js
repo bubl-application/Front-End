@@ -81,11 +81,11 @@ export const getComments = id => dispatch => {
       })
 }
 
-export const POST_START = "POST_START";
-export const POST_SUCCESS = "POST_SUCCESS";
-export const POST_FAILURE = "POST_FAILURE";
+export const ADD_COMMENT_START = "ADD_COMMENT_START";
+export const ADD_COMMENT_SUCCESS = "ADD_COMMENT_SUCCESS";
+export const ADD_COMMENT_FAILURE = "ADD_COMMENT_FAILURE";
 
-export const postBubl = (bublmessage, id) => dispatch => {
+export const addComment = (bublmessage, id) => dispatch => {
 
   // badly written, but it fakes it.
 
@@ -100,19 +100,19 @@ export const postBubl = (bublmessage, id) => dispatch => {
 //     ...bubls.slice(specificBublIndex + 1)
 //   ];
   
-   // dispatch({type: POST_SUCCESS, payload: newBubls});
+   // dispatch({type: ADD_COMMENT_SUCCESS, payload: newBubls});
 
-   dispatch({type: POST_START});
+   dispatch({type: ADD_COMMENT_START});
    return axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
     headers: { Authorization: localStorage.getItem("token") }
   })
       .then(res => {
         console.log(res);
         
-         dispatch({type: POST_SUCCESS, payload: res.data})
+         dispatch({type: ADD_COMMENT_SUCCESS, payload: res.data})
       })
       .catch(err => {
-         dispatch({type: POST_FAILURE, payload: err})
+         dispatch({type: ADD_COMMENT_FAILURE, payload: err})
       })
 }
 
