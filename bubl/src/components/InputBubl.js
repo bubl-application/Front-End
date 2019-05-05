@@ -1,22 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { postBubl, getComments } from '../actions';
+import { addComment, getComments } from '../actions';
 import {Button, Input} from '../StyledComponents';
 
 class InputBubl extends Component {
    state = {
-      comments: "",
-
+      comments: '',
       school_id: '',
       student_id: '',
       thread_id: '',
       bubl_id: '',
-
-      // bublName: "pokemon",
-      // comments: "awesome comment",
-      // id: 1,
-      // title: "I cant wait for detective pikachu",
-      // username: "winterIsComing",
    }
 
    componentWillReceiveProps(nextProps) {
@@ -38,7 +31,7 @@ class InputBubl extends Component {
    addNewBublMessage = e => {
       e.preventDefault();
       if (this.state.comments !== '') {
-         this.props.postBubl(this.state, this.props.id);
+         this.props.addComment(this.state, this.props.id);
          this.props.getComments(this.props.id)
       }
       this.setState({
@@ -73,4 +66,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, {postBubl, getComments})(InputBubl);
+export default connect(mapStateToProps, {addComment, getComments})(InputBubl);

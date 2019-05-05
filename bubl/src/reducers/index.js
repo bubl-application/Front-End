@@ -3,7 +3,7 @@ import {
    REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE,
    FETCH_START, FETCH_SUCCESS, FETCH_FAILURE,
    FETCH_COMMENTS_START, FETCH_COMMENTS_SUCCESS, FETCH_COMMENTS_FAILURE,
-   POST_START, POST_SUCCESS, POST_FAILURE, 
+   ADD_COMMENT_START, ADD_COMMENT_SUCCESS, ADD_COMMENT_FAILURE,
    FETCH_SCHOOL_SUCCESS, FETCH_SCHOOL_START, FILTER_BUBLS
 } from '../actions';
 
@@ -12,10 +12,10 @@ const initialState = {
    comments: [],
    filteredBubls: [],
    schools: [],
-   "student_id": null,
-   "school_id": null,
-  "bubl_id": null,
-  "thread_id": null,
+   student_id: null,
+   school_id: null,
+   bubl_id: null,
+   thread_id: null,
    fetchingSchools: false,
    fetchingBubls: false,
    postingBubls: false,
@@ -114,20 +114,20 @@ export default (state = initialState, action) => {
             error: action.payload
          }
       }
-      case POST_START: {
+      case ADD_COMMENT_START: {
          return {
             ...state,
             postingBubls: true
          }
       }
-      case POST_SUCCESS: {
+      case ADD_COMMENT_SUCCESS: {
          return {
             ...state,
             postingBubls: false,
             bubls: action.payload
          }
       }
-      case POST_FAILURE: {
+      case ADD_COMMENT_FAILURE: {
          return {
             ...state,
             postingBubls: false,
