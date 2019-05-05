@@ -103,7 +103,7 @@ export const addComment = (bublmessage, id) => dispatch => {
    // dispatch({type: ADD_COMMENT_SUCCESS, payload: newBubls});
 
    dispatch({type: ADD_COMMENT_START});
-   axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
+   return axios.post(`https://bublapplication.herokuapp.com/comment`, bublmessage, {
     headers: { Authorization: localStorage.getItem("token") }
   })
       .then(res => {
