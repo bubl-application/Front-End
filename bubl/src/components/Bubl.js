@@ -44,6 +44,7 @@ class Bubl extends Component {
             ))}
 
             <InputBubl id={this.props.match.params.id} />
+            {this.props.addCommentError && <p>Comment failed, try again</p>}            
          </div>
 
          
@@ -53,7 +54,8 @@ class Bubl extends Component {
 
 const mapStateToProps = state => {
    return {
-      comments: state.comments
+      comments: state.comments,
+      addCommentError: state.addCommentError    
    }
 }
 
