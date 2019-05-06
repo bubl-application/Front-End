@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee:400,400i');
+@import './scss/styles.scss';
+
+.App {
+  text-align: center;
+  font-family: 'ABeeZee', cursive;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+nav a {
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+  // color: $white;
+  color: $white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  background-color: transparent;
+  // background-color: $white;
+  color: $seablueish;
+  text-decoration: none;
+  border: 1px solid $seablueish;
+  border-radius: 50px;
+}
+
+.navLogo:hover {
+  background-color: none;
+  transform: scale3d(1.2, 1.2, 1.2) rotate(-10deg);
+  border: none;
+}
+
+.activeNav {
+  background-color: transparent;
+  color: $seablueish;
+  border: 1px solid $seablueish;
+  border-radius: 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+.schoolUl > .schoolLinks > a {
+  color: $white;
+}
+
+.heading2 {
+  color: $seablueish;
+  // margin: 0 auto;
+  // padding: 0;
+}
+
+.schoolUl {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.box1 {
+  position: relative;
+  margin-top: 50px;
+  z-index: 0;
+  top: 40px;
+  left: -20px;
+  animation: bobbleRight 7s infinite;
+  @keyframes bobbleRight {
+    0% {
+      transform: translateX(10px);
+    }
+    50% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.signupBtn {
+  max-width: 200px;
+  margin: 5px auto;
+  padding: 5px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border: 1px solid $seablueish;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+
+.loginBtn {
+  max-width: 200px;
+  margin: 5px auto;
+  padding: 5px 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  border: 1px solid $brightgreenish;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+
+.signupBtn:hover,
+.loginBtn:hover {
+  color: $white;
+  background: linear-gradient(270deg, #00e6ff 20%, #00a3ff 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  margin: 6px auto; // makes it not jumpy!
+  text-shadow: none;
+  text-decoration: none;
+}
+
+.bublCta {
+  position: relative;
+  margin-bottom: 20px;
+  z-index: 100;
+  top: -430px;
+  left: 0;
+}
+
+.bubblesBg {
+  position: relative;
+  top: -240px;
+  left: 0;
+  z-index: 200;
+}
+
+.kidsImage {
+  width: 80%;
+  height: auto;
+  position: relative;
+  top: -550px;
+  left: -20px;
+  z-index: 300;
+}
+
+.bubblekids {
+  position: relative;
+  top: -30px;
+  left: -80px;
+  z-index: 400;
+}
+
+.mainPara {
+  margin-top: 20px;
+  line-height: 1.5;
+  font-size: 1.25em;
+}
+
+.box2 {
+  animation: bobbleRight 8s infinite;
+  @keyframes bobbleRight {
+    0% {
+      transform: translateX(10px);
+    }
+    50% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateX(10px);
+    }
+  }
+}
+
+.row1 {
+  position: relative;
+  top: -430px;
+  left: 0;
+  z-index: 500;
+}
+
+.row2 {
+  position: relative;
+  top: -430px;
+  left: 0;
+  z-index: 600;
+}
+
+video {
+  margin-top: 30px;
+  width: 90%;
+  height: auto;
+}
