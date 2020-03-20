@@ -23,7 +23,7 @@ function App() {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-transparent">
           <div className="container">
-            <NavLink className="navLogo" to="/home">
+            <NavLink className="navLogo" to="/">
               <img height="90" src={brand} alt="Brand" />
             </NavLink>
             <button
@@ -70,7 +70,7 @@ function App() {
             Schools
           </NavLink>
         </NavBar> */}
-        <Route path="/home" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/team" component={Team} />
         <Route path="/login" component={Login} />
